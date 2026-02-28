@@ -1,0 +1,38 @@
+name: 'GuardSpine Docs Guard'
+description: 'Verify documentation claims against code evidence with SHA-256 hash chains'
+
+inputs:
+  manifest_path:
+    description: 'Path to docs manifest YAML'
+    required: false
+    default: 'guardspine.docs.yaml'
+  openrouter_api_key:
+    description: 'OpenRouter API key for AI suggestions on failed claims'
+    required: false
+    default: ''
+  model:
+    description: 'OpenRouter model for suggestions'
+    required: false
+    default: 'anthropic/claude-sonnet-4'
+  fail_on_drift:
+    description: 'Fail the check if any claims fail verification'
+    required: false
+    default: 'false'
+  github_token:
+    description: 'GitHub token for posting PR comments'
+    required: false
+    default: '${{ github.token }}'
+
+outputs:
+  total_claims:
+    description: 'Total number of claims checked'
+  passed:
+    description: 'Number of claims that passed'
+  failed:
+    description: 'Number of claims that failed'
+  report_json:
+    description: 'Full health report as JSON'
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
