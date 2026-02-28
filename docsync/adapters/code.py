@@ -11,7 +11,7 @@ from pathlib import Path
 
 from ..claims import EvidenceRef
 
-_CODE_EXTENSIONS = {".py", ".js", ".ts", ".go", ".rs", ".java", ".c", ".h", ".cpp"}
+_CODE_EXTENSIONS = {".py", ".js", ".ts", ".tsx", ".jsx", ".go", ".rs", ".java", ".c", ".h", ".cpp"}
 _MAX_PATTERN_LEN = 1000
 
 
